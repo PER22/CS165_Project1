@@ -13,9 +13,7 @@ int main(int argc, char *argv[])
     string salt = "";
     string correct_hash  = "";
     int cartesian_product_indices[6] = {0};
-    while(!(cartesian_product_indices[0]==25 && cartesian_product_indices[1]==25 
-    && cartesian_product_indices[2]==25 && cartesian_product_indices[3]==25 
-    && cartesian_product_indices[4]==25 && cartesian_product_indices[5]==25 )){
+    while(cartesian_product_indices[0] < 26){
         //build search string
         string password_attempt = "";
         for (int i = 0 ; i < 6; i++) {
