@@ -13,16 +13,24 @@ int main(int argc, char *argv[])
     string salt = "";
     string correct_hash  = "";
     int cartesian_product_indices[6] = {0};
-    while(cartesian_product_indices[5] != 25 || cartesian_product_indices[0]!= 25){
-        //build strings iteratively instead of upfront, save memory
+    while(!(cartesian_product_indices[0]==25 && cartesian_product_indices[1]==25 
+    && cartesian_product_indices[2]==25 && cartesian_product_indices[3]==25 
+    && cartesian_product_indices[4]==25 && cartesian_product_indices[5]==25 )){
+        //build search string
         string password_attempt = "";
         for (int i = 0 ; i < 6; i++) {
             password_attempt += search_alphabet[cartesian_product_indices[i]];
         }
-        //MD5Crypt the password_attempt here, and compare it to correct_hash
-
+        //TODO: MD5Crypt the password_attempt here, and compare it to correct_hash
+        cout<<password_attempt<<endl;
+        //Increment the lsb of the indices list
+        cartesian_product_indices[5]++;
+        //Update the indices list 
         for (int current_index = 5; current_index > 0;  current_index--) {
-            if(cartesian_product_indices[current_index] == 25){cartesian_product_indices[current_index] == 25}
+            if(cartesian_product_indices[current_index] == 26){
+                cartesian_product_indices[current_index] = 0;
+                cartesian_product_indices[current_index - 1]++;
+                }
         }
     }
     
